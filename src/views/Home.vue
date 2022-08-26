@@ -6,21 +6,28 @@
 </script>
 
 <template>
-  <div class="min-h-full flex flex-col items-center justify-center">
+  <div class="flex min-h-full flex-col items-center justify-center">
     <img alt="Vue logo" src="../assets/logo.png" class="mt-10" />
     <button
       @click="count++"
-      class="py-1 px-3 border text-sm font-medium rounded-md text-black"
+      class="rounded-md border py-1 px-3 text-sm font-medium text-black"
     >
       Count: {{ count }}
     </button>
     <HelloWorld msg="Vite + Vue 3 + Typescript + Tailwind 3 + Vue Rounter 4" />
-    <div class="inline-flex rounded-md shadow mt-10">
+    <div class="mt-10 inline-flex rounded-md shadow">
       <router-link
         to="/about"
-        class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none"
-        >Next Page</router-link
+        class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium leading-6 text-white transition duration-150 ease-in-out hover:bg-indigo-500 focus:outline-none"
       >
+        about
+      </router-link>
+      <router-link
+        to="/design-system"
+        class="inline-flex ml-3 items-center justify-center rounded-md border border-transparent bg-lime-300 px-4 py-2 text-base font-medium leading-6 text-white transition duration-150 ease-in-out focus:outline-none"
+      >
+        Design system
+      </router-link>
     </div>
   </div>
 </template>
