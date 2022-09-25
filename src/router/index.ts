@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router'
 
 //Routes
 import Home from '../views/Home.vue'
@@ -8,8 +8,8 @@ import NotFound from '../views/NotFound.vue'
 const routes = [
   {
     path: '/',
-    meta: { title: 'Home' },
-    component: Home,
+    meta: { title: 'Login' },
+    component: () => import('../views/login.vue'),
   },
   {
     path: '/about',
@@ -24,10 +24,10 @@ const routes = [
     path: '/:page',
     component: NotFound,
   },
-];
+]
 
 export const Router = createRouter({
   scrollBehavior: () => ({ left: 0, top: 0 }),
   history: createWebHistory(),
   routes,
-});
+})
