@@ -10,6 +10,7 @@
     email: '',
     password: '',
   })
+  const searchCode = ref('')
   const notification = ref(false)
 
   const Handleloguin = async () => {
@@ -22,9 +23,7 @@
     class="h-screen w-screen overflow-hidden bg-white lg:grid lg:grid-cols-12"
   >
     <!-- Grid 1 -->
-    <section
-      class="col-span-12 h-2/5 w-full bg-cyan-700 md:col-span-3 lg:h-full"
-    >
+    <section class="col-span-12 h-2/5 bg-cyan-700 md:col-span-3 lg:h-full">
       <router-link to="/" class="flex justify-center">
         <img
           src="../assets/logo-sairus.svg"
@@ -32,7 +31,27 @@
         />
       </router-link>
 
-      <img src="../assets/conecta-sairus.svg" class="mx-auto hidden lg:block" />
+      <div>
+        <img
+          src="../assets/conecta-sairus.svg"
+          class="-ml-32 hidden lg:inline-block"
+          style="width: 680px; max-width: 1000px !important"
+        />
+      </div>
+
+      <div class="form-control relative mt-8 hidden px-4 lg:flex">
+        <input
+          type="text"
+          name="search"
+          class="field-cyan rounded-xl pr-11 shadow-md"
+          maxlength="20"
+          placeholder="Digite o código"
+          v-model="searchCode"
+        />
+        <button class="absolute right-7 top-1">
+          <img src="../assets/icons/Search.svg" />
+        </button>
+      </div>
     </section>
 
     <!-- Grid 2-->
@@ -82,12 +101,19 @@
               Continuar
             </button>
 
-            <div>
-              <ul class="flex items-center">
-                <li class="w-[30%] border-b border-gray-200"></li>
-                <li class="px-2">ou continue com</li>
-                <li class="w-[30%] border-b border-gray-200"></li>
-              </ul>
+            <div class="flex items-center justify-center">
+              <div class="w-1/5 border-b border-gray-200 md:w-1/4"></div>
+              <div class="px-2">ou continue com</div>
+              <div class="w-1/5 border-b border-gray-200 md:w-1/4"></div>
+            </div>
+
+            <div class="mt-6 flex justify-center">
+              <button
+                class="flex w-full items-center justify-center gap-3 rounded-md border border-gray-200 p-2 md:w-2/3"
+              >
+                <img src="../assets/icons/google-icon.svg" />
+                Login com o Google
+              </button>
             </div>
           </form>
         </div>
@@ -95,5 +121,3 @@
     </section>
   </main>
 </template>
-
-<style lang="scss" scoped></style>
