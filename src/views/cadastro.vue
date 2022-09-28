@@ -7,15 +7,17 @@
   //Router
   const router = useRouter()
 
-  const formLogin = ref({
+  const formSignUp = ref({
+    name: '',
     email: '',
     password: '',
   })
 
+  const confimacaoPassword = ref('')
   const notification = ref(false)
 
   const Handleloguin = async () => {
-    console.log(formLogin)
+    console.log(formSignUp)
   }
 </script>
 
@@ -30,17 +32,27 @@
     <section
       class="col-span-12 flex w-full flex-col bg-white lg:col-span-9 lg:h-full"
     >
-      <Header class="hidden lg:flex" redirect="/cadastro" ButtonText="Cadastre-se" />
+      <Header class="hidden lg:flex" redirect="/" ButtonText="Entrar" />
 
       <div
         class="-mt-32 flex items-center justify-center lg:mx-auto lg:my-auto lg:inline-block"
       >
         <div class="card w-11/12 max-w-sm lg:w-96">
           <div class="mb-8 flex justify-center">
-            <h2 class="text-2xl font-bold">Fazer login</h2>
+            <h2 class="text-2xl font-bold">Cadastre-se</h2>
           </div>
 
           <form @submit.prevent="Handleloguin">
+            <div class="form-control">
+              <label for="id_name">Nome</label>
+              <input
+                type="name"
+                id="id_name"
+                required
+                class="field-cyan"
+                v-model="formSignUp.name"
+              />
+            </div>
             <div class="form-control">
               <label for="id_email">Email</label>
               <input
@@ -48,7 +60,7 @@
                 id="id_email"
                 required
                 class="field-cyan"
-                v-model="formLogin.email"
+                v-model="formSignUp.email"
               />
             </div>
             <div class="form-control mt-3">
@@ -58,7 +70,17 @@
                 id="id_password"
                 required
                 class="field-cyan"
-                v-model="formLogin.password"
+                v-model="formSignUp.password"
+              />
+            </div>
+            <div class="form-control mt-3">
+              <label for="id_password">Senha</label>
+              <input
+                type="password"
+                id="id_password"
+                required
+                class="field-cyan"
+                v-model="formSignUp.password"
               />
             </div>
 

@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 //Routes
-import Home from '../views/Home.vue'
-import About from '../views/About.vue'
 import NotFound from '../views/NotFound.vue'
 
 const routes = [
@@ -12,13 +10,14 @@ const routes = [
     component: () => import('../views/login.vue'),
   },
   {
-    path: '/about',
-    meta: { title: 'About' },
-    component: About,
-    // example of route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    // component: () => import('../views/About.vue')
+    path: '/cadastro',
+    meta: { title: 'Cadastro' },
+    component: () => import('../views/cadastro.vue'),
+  },
+  {
+    path: '/scanner',
+    meta: { title: 'Scanner' },
+    component: () => import('../views/scanner_entrada.vue'),
   },
   {
     path: '/:page',
