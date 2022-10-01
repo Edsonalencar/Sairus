@@ -7,17 +7,22 @@
   //Router
   const router = useRouter()
 
-  const formSignUp = ref({
+  const scanner = ref({
     name: '',
-    email: '',
-    password: '',
+    name_social: '',
+    idade: '',
+    tipo_sanguineo: '',
+    telefone: '',
+    telefone_emergencia: '',
+    alergia_medicamentos: '',
+    comorbidades: [],
   })
 
   const confimacaoPassword = ref('')
   const notification = ref(false)
 
   const Handleloguin = async () => {
-    console.log(formSignUp)
+    console.log(scanner)
   }
 </script>
 
@@ -35,79 +40,100 @@
       <Header class="hidden lg:flex" redirect="/" ButtonText="Entrar" />
 
       <div
-        class="-mt-32 flex items-center justify-center lg:mx-auto lg:my-auto lg:inline-block"
+        class="-mt-32 flex items-center justify-center lg:mx-auto lg:my-auto lg:inline-block lg:w-full lg:max-w-lg"
       >
-        <div class="card w-11/12 max-w-sm lg:w-96">
-          <div class="mb-8 flex justify-center">
-            <h2 class="text-2xl font-bold">Cadastre-se</h2>
+        <div class="card w-full pb-8">
+          <div
+            class="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-orange-300 text-white"
+          >
+            <strong class="text-3xl">PS</strong>
           </div>
 
-          <form @submit.prevent="Handleloguin">
-            <div class="form-control">
-              <label for="id_name">Nome</label>
+          <form
+            @submit.prevent="Handleloguin"
+            class="mt-4 grid grid-cols-2 gap-4"
+          >
+            <div class="form-control col-span-2">
+              <label for="id-name">Nome</label>
               <input
                 type="name"
-                id="id_name"
+                id="id-name"
                 required
                 class="field-cyan"
-                v-model="formSignUp.name"
+                v-model="scanner.name"
               />
             </div>
-            <div class="form-control">
-              <label for="id_email">Email</label>
+            <div class="form-control col-span-2">
+              <label for="id-name_social">Nome social</label>
               <input
-                type="email"
-                id="id_email"
+                type="text"
+                id="id-name_social"
                 required
                 class="field-cyan"
-                v-model="formSignUp.email"
+                v-model="scanner.name_social"
               />
             </div>
-            <div class="form-control mt-3">
-              <label for="id_password">Senha</label>
+            <div class="form-control col-span-2 md:col-span-1">
+              <label for="id-idade">Idade</label>
               <input
-                type="password"
-                id="id_password"
+                type="number"
+                id="id-idade"
                 required
                 class="field-cyan"
-                v-model="formSignUp.password"
+                v-model="scanner.idade"
               />
             </div>
-            <div class="form-control mt-3">
-              <label for="id_password">Senha</label>
+            <div class="form-control col-span-2 md:col-span-1">
+              <label for="id-tipo_sanguineo">Tipo sanguineo</label>
               <input
-                type="password"
-                id="id_password"
+                type="text"
+                id="id-tipo_sanguineo"
                 required
                 class="field-cyan"
-                v-model="formSignUp.password"
+                v-model="scanner.tipo_sanguineo"
               />
             </div>
-
-            <div class="mt-3 flex justify-end">
-              <a class="cursor-pointer font-bold">Esqueceu sua senha?</a>
+            <div class="form-control col-span-2 md:col-span-1">
+              <label for="id-telefone">Telefone</label>
+              <input
+                type="text"
+                id="id-telefone"
+                required
+                class="field-cyan"
+                v-model="scanner.telefone"
+              />
             </div>
-
-            <button
-              type="submit"
-              class="my-7 w-full rounded bg-orange-800 py-2 text-base font-semibold text-white"
-            >
-              Continuar
-            </button>
-
-            <div class="flex items-center justify-center">
-              <div class="w-1/5 border-b border-gray-200 md:w-1/4"></div>
-              <div class="px-2">ou continue com</div>
-              <div class="w-1/5 border-b border-gray-200 md:w-1/4"></div>
+            <div class="form-control col-span-2 md:col-span-1">
+              <label for="id-telefone_emergencia">Telefone emergencia</label>
+              <input
+                type="text"
+                id="id-telefone_emergencia"
+                required
+                class="field-cyan"
+                v-model="scanner.telefone_emergencia"
+              />
             </div>
-
-            <div class="mt-6 flex justify-center">
-              <button
-                class="flex w-full items-center justify-center gap-3 rounded-md border border-gray-200 p-2 md:w-2/3"
+            <div class="form-control col-span-2">
+              <label for="id-alergia_medicamentos"
+                >Alergia a medicamentos</label
               >
-                <img src="../assets/icons/google-icon.svg" />
-                Login com o Google
-              </button>
+              <input
+                type="text"
+                id="id-alergia_medicamentos"
+                required
+                class="field-cyan"
+                v-model="scanner.alergia_medicamentos"
+              />
+            </div>
+            <div class="form-control col-span-2">
+              <label for="id-comorbidades">comorbidades</label>
+              <input
+                type="text"
+                id="id-comorbidades"
+                required
+                class="field-cyan"
+                v-model="scanner.comorbidades"
+              />
             </div>
           </form>
         </div>

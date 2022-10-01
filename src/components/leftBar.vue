@@ -12,18 +12,12 @@
       <img src="../assets/logo-sairus.svg" class="h-28 w-40 lg:h-36 lg:w-52" />
     </router-link>
 
-    <div
-      v-if="!snanner"
-      id="background_image_conecta_sairus"
-      class="hidden h-full w-full bg-slate-400 lg:flex"
-      style="max-width: 100%; max-height: 68%"
-    ></div>
-    <div
-      v-if="snanner"
-      id="background_image_scanner"
-      class="hidden h-full w-full bg-slate-400 lg:flex"
-      style="max-width: 100%; max-height: 68%"
-    ></div>
+    <div v-if="!snanner" class="hidden pt-5 lg:flex">
+      <img src="../assets/conecta-sairus.svg" class="w-full" />
+    </div>
+    <div v-if="snanner" class="hidden px-5 pt-5 lg:flex">
+      <img src="../assets/scannet-ilustration.svg" class="w-full" />
+    </div>
 
     <div v-if="!snanner" class="form-control relative mt-8 hidden px-4 lg:flex">
       <input
@@ -38,7 +32,7 @@
         <img src="../assets/icons/Search.svg" />
       </button>
     </div>
-    <div v-if="snanner" class="px-4">
+    <div v-if="snanner" class="hidden px-4 lg:flex">
       <router-link
         to="/cadastro"
         type="button"
