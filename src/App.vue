@@ -37,5 +37,12 @@
     .field-gray {
       @apply rounded border-2 border-gray-200 p-2;
     }
+
+    .tabs {
+      @apply flex items-center justify-center gap-5;
+    }
+    .tab-item {
+      @apply w-1/3 border-b-4 border-gray-200 text-center text-xl font-bold text-gray-600;
+    }
   }
 </style>
