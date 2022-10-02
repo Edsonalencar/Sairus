@@ -28,9 +28,13 @@
 
     <!-- Grid 2-->
     <section
-      class="col-span-12 flex w-full flex-col bg-white lg:col-span-9 lg:h-full"
+      class="col-span-12 flex w-full flex-col lg:overflow-y-auto bg-white lg:col-span-9 lg:h-full"
     >
-      <Header class="hidden lg:flex" redirect="/cadastro" ButtonText="Cadastre-se" />
+      <Header
+        class="hidden lg:flex"
+        redirect="/cadastro"
+        ButtonText="Cadastre-se"
+      />
 
       <div
         class="-mt-32 flex items-center justify-center lg:mx-auto lg:my-auto lg:inline-block"

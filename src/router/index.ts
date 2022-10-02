@@ -20,6 +20,11 @@ const routes = [
     component: () => import('../views/scanner_entrada.vue'),
   },
   {
+    path: '/deshbord',
+    meta: { title: 'Deshbord' },
+    component: () => import('../views/deshbord/home.vue'),
+  },
+  {
     path: '/:page',
     component: NotFound,
   },

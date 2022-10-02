@@ -35,7 +35,7 @@
 
     <!-- Grid 2-->
     <section
-      class="col-span-12 flex w-full flex-col bg-white lg:col-span-9 lg:h-full"
+      class="col-span-12 flex w-full flex-col bg-white lg:col-span-9 lg:h-full lg:overflow-y-auto"
     >
       <Header class="hidden lg:flex" redirect="/" ButtonText="Entrar" />
 
