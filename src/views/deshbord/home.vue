@@ -56,6 +56,53 @@
       type: 'text',
     },
   ]
+
+  const dados_pessoais = [
+    {
+      label: 'Nome completo',
+      key: 'nome',
+      type: 'text',
+    },
+    {
+      label: 'Nome social',
+      key: 'nome_social',
+      type: 'text',
+    },
+    {
+      label: 'Data de nascimento ',
+      key: 'data_nascimento',
+      type: 'text',
+    },
+    {
+      label: 'Idade ',
+      key: 'idade',
+      type: 'text',
+    },
+    {
+      label: 'Sexo biológico ',
+      key: 'sexo',
+      type: 'text',
+    },
+    {
+      label: 'Telefone ',
+      key: 'telefone',
+      type: 'text',
+    },
+    {
+      label: 'Telefone  Emergência',
+      key: 'telefone_emergencia',
+      type: 'text',
+    },
+    {
+      label: 'CPF',
+      key: 'cpf',
+      type: 'text',
+    },
+  ]
+
+  const dados_saude = [
+
+  ]
 </script>
 
 <template>
