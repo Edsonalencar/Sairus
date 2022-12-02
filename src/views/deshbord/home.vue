@@ -3,16 +3,7 @@
   import { useRouter } from 'vue-router'
   import navBar from '../../components/deshbord/navbar.vue'
 
-  const FormDadosPessoais = ref({
-    nome: '',
-    nome_social: '',
-    data_nascimento: '',
-    idade: '',
-    sexo: '',
-    telefone: '',
-    telefone_emergencia: '',
-    cpf: '',
-  })
+  const dados = ref<any>({})
 
   const form = ref<any>([])
 
@@ -127,6 +118,7 @@
 
   onMounted(() => {
     form.value = dados_pessoais
+    tabSelection(0)
   })
 
   function showDadosPessoais() {
@@ -155,6 +147,10 @@
   function tabSelection(id: number) {
     const tabs = document.querySelectorAll('.tab-item')
     tabs[id].classList.add('tab-selected')
+  }
+
+  function showDados() {
+    console.log(dados.value)
   }
 </script>
 
@@ -198,6 +194,7 @@
                 :id="`id_${item.key}`"
                 required
                 class="field-gray"
+                v-model="dados[item.key]"
               />
             </div>
           </div>
@@ -206,6 +203,7 @@
             <button
               type="button"
               class="flex w-full items-center justify-center gap-3 rounded-lg bg-orange-800 py-2 px-4 text-center text-base font-semibold text-white shadow-md"
+              @click="showDados"
             >
               Salvar alterações
             </button>
