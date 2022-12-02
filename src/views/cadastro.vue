@@ -32,7 +32,7 @@
     <section
       class="col-span-12 flex w-full flex-col bg-white lg:col-span-9 lg:h-full lg:overflow-y-auto"
     >
-      <Header class="hidden lg:flex" redirect="/" ButtonText="Entrar" />
+      <Header class="hidden lg:flex" redirect="/deshbord" ButtonText="Entrar" />
 
       <div
         class="-mt-32 flex items-center justify-center lg:mx-auto lg:my-auto lg:inline-block"

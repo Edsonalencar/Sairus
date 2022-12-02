@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { service } from '../service/service'
   import { ref } from 'vue'
   import { useRouter } from 'vue-router'
   import Header from '../components/Header.vue'
@@ -28,7 +29,7 @@
 
     <!-- Grid 2-->
     <section
-      class="col-span-12 flex w-full flex-col lg:overflow-y-auto bg-white lg:col-span-9 lg:h-full"
+      class="col-span-12 flex w-full flex-col bg-white lg:col-span-9 lg:h-full lg:overflow-y-auto"
     >
       <Header
         class="hidden lg:flex"

@@ -4,15 +4,10 @@ const api: AxiosInstance = axios.create({
   baseURL: 'http://localhost:3562',
 })
 
-type login = {
-  code: string
-  username: string
-}
-
 export class service {
-  static async login(username: string, password: string): Promise<any> {
+  static async login(email: string, password: string): Promise<any> {
     const user = await api.post(`/login`, {
-      username,
+      email,
       password,
     })
 
@@ -20,14 +15,14 @@ export class service {
   }
 
   static async register(
+    email: string,
     username: string,
-    password: string,
-    cpf: string
+    password: string
   ): Promise<any> {
-    const user = await api.post(`/login`, {
+    const user = await api.post(`/users`, {
+      email,
       username,
       password,
-      cpf,
     })
 
     return user
