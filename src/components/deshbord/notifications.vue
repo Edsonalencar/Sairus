@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
   import { typeNotification } from 'src/types'
+  import belIcon from '../../assets/icons/bel-icon.svg'
 
   const props = defineProps<{ notifications: typeNotification[] | [] }>()
 </script>
@@ -12,7 +13,7 @@
       >
         {{ props.notifications.length }}
       </span>
-      <img src="../../assets/icons/bel-icon.svg" class="w-32" />
+      <img :src="belIcon" class="w-56" />
     </PopoverButton>
 
     <transition

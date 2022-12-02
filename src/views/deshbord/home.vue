@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import { onMounted, ref } from 'vue'
   import { useRouter } from 'vue-router'
   import navBar from '../../components/deshbord/navbar.vue'
 
@@ -14,48 +14,7 @@
     cpf: '',
   })
 
-  const form = [
-    {
-      label: 'Nome completo',
-      key: 'nome',
-      type: 'text',
-    },
-    {
-      label: 'Nome social',
-      key: 'nome_social',
-      type: 'text',
-    },
-    {
-      label: 'Data de nascimento ',
-      key: 'data_nascimento',
-      type: 'text',
-    },
-    {
-      label: 'Idade ',
-      key: 'idade',
-      type: 'text',
-    },
-    {
-      label: 'Sexo biológico ',
-      key: 'sexo',
-      type: 'text',
-    },
-    {
-      label: 'Telefone ',
-      key: 'telefone',
-      type: 'text',
-    },
-    {
-      label: 'Telefone  Emergência',
-      key: 'telefone_emergencia',
-      type: 'text',
-    },
-    {
-      label: 'CPF',
-      key: 'cpf',
-      type: 'text',
-    },
-  ]
+  const form = ref<any>([])
 
   const dados_pessoais = [
     {
@@ -101,20 +60,114 @@
   ]
 
   const dados_saude = [
-
+    {
+      label: 'CNS',
+      key: 'cns',
+      type: 'text',
+    },
+    {
+      label: 'Tipo sanguineo',
+      key: 'tipo_sanguineo',
+      type: 'text',
+    },
+    {
+      label: 'Alergia a medicamentos',
+      key: 'alergia_medicamentos',
+      type: 'text',
+    },
+    {
+      label: 'Medicamentos em uso',
+      key: 'medicamentos_uso',
+      type: 'text',
+    },
+    {
+      label: 'Gestante',
+      key: 'gestante',
+      type: 'text',
+    },
+    {
+      label: 'Peso',
+      key: 'peso',
+      type: 'text',
+    },
+    {
+      label: 'Comorbidades',
+      key: 'comorbidades',
+      type: 'text',
+    },
   ]
+
+  const endereco = [
+    {
+      label: 'CEP',
+      key: 'cep',
+      type: 'text',
+    },
+    {
+      label: 'Endereço',
+      key: 'endereco',
+      type: 'text',
+    },
+    {
+      label: 'Bairro',
+      key: 'bairro',
+      type: 'text',
+    },
+    {
+      label: 'Cidade',
+      key: 'cidade',
+      type: 'text',
+    },
+    {
+      label: 'Estado',
+      key: 'estado',
+      type: 'text',
+    },
+  ]
+
+  onMounted(() => {
+    form.value = dados_pessoais
+  })
+
+  function showDadosPessoais() {
+    form.value = dados_pessoais
+    tabClearSelection()
+    tabSelection(0)
+  }
+  function showDadosSaude() {
+    form.value = dados_saude
+    tabClearSelection()
+    tabSelection(1)
+  }
+  function showEndereco() {
+    form.value = endereco
+    tabClearSelection()
+    tabSelection(2)
+  }
+
+  function tabClearSelection() {
+    const tabs = document.querySelectorAll('.tab-item')
+
+    tabs.forEach((tab) => {
+      tab.classList.remove('tab-selected')
+    })
+  }
+  function tabSelection(id: number) {
+    const tabs = document.querySelectorAll('.tab-item')
+    tabs[id].classList.add('tab-selected')
+  }
 </script>
 
 <template>
   <div>
     <navBar />
 
-    <section class="flex items-center justify-center py-20">
+    <section class="flex items-center justify-center pt-20">
       <div class="w-3/4">
         <ul class="tabs">
-          <li class="tab-item">Dados Pessoais</li>
-          <li class="tab-item">Dados de Saúde</li>
-          <li class="tab-item">Endereço</li>
+          <li class="tab-item" @click="showDadosPessoais">Dados Pessoais</li>
+          <li class="tab-item" @click="showDadosSaude">Dados de Saúde</li>
+          <li class="tab-item" @click="showEndereco">Endereço</li>
         </ul>
 
         <div class="mt-10 grid grid-cols-3">

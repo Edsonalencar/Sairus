@@ -42,7 +42,13 @@
       @apply flex items-center justify-center gap-5;
     }
     .tab-item {
-      @apply w-1/3 border-b-4 border-gray-200 text-center text-xl font-bold text-gray-600;
+      @apply w-1/3 cursor-pointer border-b-4 border-gray-200 text-center text-xl font-bold text-gray-600;
+    }
+    .tab-item:hover {
+      @apply border-orange-800 text-orange-300 transition ease-in;
+    }
+    .tab-item.tab-selected {
+      @apply border-orange-800 text-orange-300;
     }
   }
 </style>
